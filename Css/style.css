@@ -1,0 +1,198 @@
+/* La version mobile */
+
+body {
+    width: 100%;
+    margin: auto;
+    max-width: 1500px;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: #868992;
+    background: #f6e6c3;
+    font-size: 1rem;
+    border-radius: 0px 0px 15px 15px;
+    position: relative;
+    padding-bottom: 40px;
+}
+
+header .left {
+    margin: 20px 0px 10px 20px;
+}
+
+.left .text {
+    font-size: 1.7rem;
+}
+
+header .right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 15px;
+    right: 0;
+    background-color: #dfa663;
+    width: 200px;
+    font-size: 3rem;
+    border-radius: 0% 0% 10% 60%;
+}
+
+header i {
+    color: #868992;
+}
+
+header .btn {
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    width: 380px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px white solid;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.btn i {
+    margin-left: 10px;
+    color: #868992;
+}
+
+.btn input {
+    border: none;
+    height: 30px;
+    font-size: 1.1rem;
+    color: #868992;
+    margin-left: -5px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+main h1,
+h2 {
+    text-align: center;
+    color: #868992;
+    margin: 10px 5px 10px 5px;
+}
+
+main article {
+    display: flex;
+    flex-direction: column;
+    height: 1100px;
+    margin: 20px;
+}
+
+article a {
+    color: black;
+    text-decoration: none;
+}
+
+article .name {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+article #product_1 {
+    background-image: url(../images/vcam_1.jpg);
+    height: 200px;
+    background-size: cover;
+    margin-bottom: 20px;
+    border-radius: 0% 20% 0% 20%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-origin: content-box;
+    cursor: pointer;
+}
+
+article #product_2 {
+    background-image: url(../images/vcam_2.jpg);
+    height: 200px;
+    background-size: cover;
+    margin-bottom: 20px;
+    border-radius: 0% 20% 0% 20%;
+    background-repeat: no-repeat;
+}
+
+article #product_3 {
+    background-image: url(../images/vcam_3.jpg);
+    height: 200px;
+    background-size: cover;
+    margin-bottom: 20px;
+    border-radius: 0% 20% 0% 20%;
+    background-repeat: no-repeat;
+}
+
+article #product_4 {
+    background-image: url(../images/vcam_4.jpg);
+    height: 200px;
+    background-size: cover;
+    margin-bottom: 20px;
+    border-radius: 0% 20% 0% 20%;
+    background-repeat: no-repeat;
+}
+
+article #product_5 {
+    background-image: url(../images/vcam_5.jpg);
+    height: 200px;
+    background-size: cover;
+    margin-bottom: 20px;
+    border-radius: 0% 20% 0% 20%;
+    background-repeat: no-repeat;
+}
+
+footer {
+    display: flex;
+    flex-direction: column-reverse;
+    color: white;
+    height: 120px;
+    padding: 0px 20px 0px 20px;
+    position: relative;
+    background: linear-gradient(#5b3c11, white);
+    box-shadow: inset 0px 5px 5px 0px white;
+}
+
+footer .h2 {
+    background-color: #5b3c11;
+    height: 5px;
+    width: 200px;
+    margin: auto;
+    border-radius: 2px;
+}
+
+footer .list {
+    display: flex;
+    flex-direction: row;
+    margin: 0px 0px 20px 0px;
+    justify-content: space-between;
+}
+
+footer .elt {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-top: 20px;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+}
+
+footer i {
+    margin-bottom: 10px;
+    width: 10px;
+    height: 10px;
+}
