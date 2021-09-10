@@ -61,7 +61,7 @@ header .btn {
 }
 
 .btn i {
-    margin: 0px 0px 2px 5px;
+    margin: 0px 0px 2px5px;
     color: #868992;
 }
 
@@ -82,7 +82,7 @@ main h1,
 h2 {
     text-align: center;
     color: #868992;
-    margin: 10px 5px 10px 5px;
+    margin: 10px 7.5px 10px 7.5px;
 }
 
 main article {
@@ -100,7 +100,24 @@ article a {
 article .name {
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
+    background-color: white;
+    opacity: 0.4;
+    height: 40px;
+    color: black;
+    border-radius: 0% 20% 0% 20%;
+    height: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+article .brand {
+    margin-left: 20px;
+}
+
+article .price {
+    margin-right: 20px;
 }
 
 article #product_1 {
@@ -195,4 +212,36 @@ footer i {
     margin-bottom: 10px;
     width: 10px;
     height: 10px;
+}
+
+@media (min-width: 768px) {
+    main article {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        height: 500px;
+        margin-top: 20px;
+    }
+    article .brand {
+        margin-left: 20px;
+    }
+    article .price {
+        margin-right: 20px;
+    }
+    article #product_1 {
+        width: 30%;
+    }
+    article #product_2 {
+        width: 30%;
+    }
+    article #product_3 {
+        width: 30%;
+    }
+    article #product_4 {
+        width: 30%;
+    }
+    article #product_5 {
+        width: 30%;
+    }
 }
