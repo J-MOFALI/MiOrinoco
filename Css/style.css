@@ -17,6 +17,7 @@ header {
     border-radius: 0px 0px 15px 15px;
     position: relative;
     padding-bottom: 40px;
+    z-index: 1;
 }
 
 header .left {
@@ -58,10 +59,11 @@ header .btn {
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    font-size: 0.8rem;
 }
 
 .btn i {
-    margin: 0px 0px 2px5px;
+    margin: 2px 0px 0px 2px;
     color: #868992;
 }
 
@@ -76,20 +78,24 @@ header .btn {
 main {
     display: flex;
     flex-direction: column;
+    background-color: rgba(192, 192, 192, 0.5);
+    margin-top: -10px;
+    z-index: 2;
 }
 
-main h1,
-h2 {
-    text-align: center;
-    color: #868992;
-    margin: 10px 7.5px 10px 7.5px;
+main h1 {
+    text-align: left;
+    color: rgba(255, 255, 255, 1);
+    margin: 10px 7.5px 0px 7.5px;
+    padding: 10px;
+    font-size: 1.7rem;
 }
 
 main article {
     display: flex;
     flex-direction: column;
     height: 1100px;
-    margin: 20px;
+    margin: -2px 20px 20px 20px;
 }
 
 article a {
@@ -106,10 +112,11 @@ article .name {
     opacity: 0.4;
     height: 40px;
     color: black;
-    border-radius: 0% 20% 0% 20%;
+    border-radius: 15px 15px 0px 0px;
     height: 50px;
     font-size: 1.2rem;
     font-weight: bold;
+    border-bottom: 1px black solid;
 }
 
 article .brand {
@@ -125,7 +132,7 @@ article #product_1 {
     height: 200px;
     background-size: cover;
     margin-bottom: 20px;
-    border-radius: 0% 20% 0% 20%;
+    border-radius: 15px;
     background-repeat: no-repeat;
     background-position: center;
     background-origin: content-box;
@@ -137,8 +144,11 @@ article #product_2 {
     height: 200px;
     background-size: cover;
     margin-bottom: 20px;
-    border-radius: 0% 20% 0% 20%;
+    border-radius: 15px;
     background-repeat: no-repeat;
+    background-position: center;
+    background-origin: content-box;
+    cursor: pointer;
 }
 
 article #product_3 {
@@ -146,8 +156,11 @@ article #product_3 {
     height: 200px;
     background-size: cover;
     margin-bottom: 20px;
-    border-radius: 0% 20% 0% 20%;
+    border-radius: 15px;
     background-repeat: no-repeat;
+    background-position: center;
+    background-origin: content-box;
+    cursor: pointer;
 }
 
 article #product_4 {
@@ -155,8 +168,11 @@ article #product_4 {
     height: 200px;
     background-size: cover;
     margin-bottom: 20px;
-    border-radius: 0% 20% 0% 20%;
+    border-radius: 15px;
     background-repeat: no-repeat;
+    background-position: center;
+    background-origin: content-box;
+    cursor: pointer;
 }
 
 article #product_5 {
@@ -164,8 +180,11 @@ article #product_5 {
     height: 200px;
     background-size: cover;
     margin-bottom: 20px;
-    border-radius: 0% 20% 0% 20%;
+    border-radius: 15px;
     background-repeat: no-repeat;
+    background-position: center;
+    background-origin: content-box;
+    cursor: pointer;
 }
 
 footer {
@@ -215,6 +234,9 @@ footer i {
 }
 
 @media (min-width: 768px) {
+    main h1 {
+        text-align: center;
+    }
     main article {
         display: flex;
         flex-direction: row;
