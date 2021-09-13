@@ -6,6 +6,9 @@ body {
     max-width: 1500px;
 }
 
+
+/* Welcome Page */
+
 header {
     display: flex;
     flex-direction: row;
@@ -50,7 +53,7 @@ header .btn {
     position: absolute;
     bottom: 10px;
     left: 20px;
-    width: auto;
+    width: 350px;
     height: 30px;
     border-radius: 5px;
     border: 1px white solid;
@@ -233,6 +236,152 @@ footer i {
     height: 10px;
 }
 
+
+/* Product Page */
+
+.header {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    height: 120px;
+}
+
+.header .btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    left: 10px;
+    margin: auto;
+}
+
+.btn input {
+    width: 100%;
+}
+
+.header .shopping {
+    position: absolute;
+    bottom: 10px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header .parrainage {
+    position: absolute;
+    bottom: 10px;
+    left: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header .aboutus {
+    position: absolute;
+    top: 10px;
+    right: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header .logo {
+    position: absolute;
+    top: 15px;
+    left: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header i {
+    color: #dfa663;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(192, 192, 192, 0.5);
+    margin-top: -10px;
+    z-index: 2;
+    height: 560px;
+}
+
+.main h1 {
+    text-align: left;
+    color: rgba(255, 255, 255, 1);
+    margin: 10px 7.5px 0px 7.5px;
+    padding: 10px;
+    font-size: 1.7rem;
+}
+
+.main article {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+.main #product_1 {
+    background-image: url(../images/vcam_1.jpg);
+    height: 200px;
+    background-size: cover;
+    border-radius: 15px 15px 0px 0px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-origin: content-box;
+    cursor: pointer;
+    z-index: 4;
+}
+
+.main .info {
+    display: flex;
+    flex-direction: column;
+    height: 250px;
+    margin-top: -20px;
+    padding: 10px;
+    background-color: #f6e6c3;
+    border-radius: 0px 0px 15px 15px;
+    z-index: 3;
+}
+
+.info .description {
+    margin: 20px 0px 4px 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.info .elt {
+    margin: 10px 0px 4px 0px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.elt .aside {
+    margin-left: 10px;
+}
+
+.elt input {
+    width: 156px;
+    border: none;
+    text-align: center;
+    padding: 5px 0px 5px 0px;
+    color: black;
+    font-weight: bold;
+}
+
+.elt2 input {
+    width: 224px;
+    background-color: #dfa663;
+    border: none;
+    text-align: center;
+    padding: 5px 0px 5px 0px;
+    color: black;
+    font-weight: bold;
+}
+
 @media (min-width: 768px) {
     main h1 {
         text-align: center;
@@ -265,5 +414,27 @@ footer i {
     }
     article #product_5 {
         width: 30%;
+    }
+    /* Produit */
+    .main {
+        align-items: center;
+    }
+    .main .info {
+        width: 430px;
+    }
+    .main #product_1 {
+        width: 450px;
+    }
+    .main #product_2 {
+        width: 412px;
+    }
+    .main #product_3 {
+        width: 412px;
+    }
+    .main #product_4 {
+        width: 412px;
+    }
+    .main #product_5 {
+        width: 412px;
     }
 }
