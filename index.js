@@ -14,7 +14,7 @@ fetch(url)
                                                                         <img src="${produit.imageUrl}" alt="${produit.name}">
                                                                         <div class="text">
                                                                             <div class="brand">${produit.name}</div>
-                                                                            <div class="price">${produit.price/100} €</div>
+                                                                            <div class="price">${(produit.price/1000).toFixed(2)} €</div>
                                                                         </div>
                                                                     </div>    
                                                                 </a>`
