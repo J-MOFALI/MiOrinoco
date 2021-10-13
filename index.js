@@ -24,6 +24,10 @@ let display = (jsonListProduit) => {
 fetch(url)
     .then(data => data.json())
     .then(display)
-    .catch(function(error) {
-        alert(error)
+    .catch((error) => {
+        let container = document.querySelector("#container");
+        container.innerHTML +=
+            "L'affichage des produits n'est pas possible. Réessayer plus tard ? <br>Si le problème persiste, contactez-nous.";
+        container.style.textAlign = "center";
+        container.style.padding = "30vh 0";
     })

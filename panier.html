@@ -27,10 +27,38 @@
     </header>
 
     <!-- Section restaurant -->
-    <div class="main">
-        <h1>Votre panier</h1>
-        <article>
-        </article>
+    <div class="main_panier">
+        <h2>Détails de la commande</h2>
+        <div id="panier"></div>
+        <h2>Remplissez le formulaire pour valider la commande</h2>
+        <form method="POST" action="" id="form">
+            <div class="group">
+                <label for="firstname">Prénom :</label>
+                <input type="text" id="firstname" name="firstname" placeholder="Josué" required>
+                <small id="small_firstname"></small>
+            </div>
+            <div class="group">
+                <label for="lastname">Nom :</label>
+                <input type="text" id="lastname" name="lastname" placeholder="MOFALI" required>
+                <small id="small_lastname"></small>
+            </div>
+            <div class="group">
+                <label for="adress">Adresse :</label>
+                <input type="text" id="adress" name="adress" placeholder="2 Allée des Micoux, 45500 Gien" required>
+                <small id="small_adress"></small>
+            </div>
+            <div class="group">
+                <label>Ville :</label>
+                <input type="text" id="city" name="city" placeholder="Gien" required>
+                <small id="small_city"></small>
+            </div>
+            <div class="group">
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" placeholder="moi@contact.com" required>
+                <small id="small_email"></small>
+            </div>
+            <button id="sendto" type="submit" name="send">Valider votre commande</button>
+        </form>
     </div>
 
     <!-- Le footer -->
@@ -42,6 +70,8 @@
             <div class="elt"><i class="fas fa-envelope-open-text"></i><a href="mailto:contact@ohmyfood.com">Nous joindre</a></div>
         </div>
     </footer>
+
+    <script src="panier.js"></script>
 
 </body>
 

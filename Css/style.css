@@ -2,6 +2,7 @@
 
 body {
     width: 100%;
+    height: 100%;
     margin: auto;
     max-width: 1500px;
 }
@@ -80,7 +81,6 @@ main {
     background-color: black;
     margin-top: -15px;
     z-index: 2;
-    height: auto;
 }
 
 main h1 {
@@ -93,6 +93,7 @@ main h1 {
 main #container {
     display: flex;
     flex-direction: column;
+    color: white;
 }
 
 main a {
@@ -260,6 +261,7 @@ footer i {
 
 .main_detail {
     height: auto;
+    padding: 20px;
 }
 
 .main.detail #container1 {
@@ -274,9 +276,11 @@ footer i {
 #container1 .picture {
     width: 300px;
     height: 200px;
-    margin: auto;
     position: relative;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    margin: auto;
 }
 
 .picture img {
@@ -289,14 +293,14 @@ footer i {
 #container1 .content {
     display: flex;
     flex-direction: column;
-    justify-content: justify;
-    margin: auto;
+    justify-content: center;
     margin-bottom: 20px;
     width: 300px;
     height: auto;
     background-color: #77B5FE;
     border-radius: 0% 0% 25% 25%;
     color: #efd807;
+    margin: auto;
 }
 
 .content .brand,
@@ -310,7 +314,7 @@ footer i {
 }
 
 .content .quantity,
-.lenses {
+form {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -324,20 +328,102 @@ footer i {
     background: white;
 }
 
-input {
+.link_to {
     width: auto;
     margin: auto;
     margin-top: 5px;
     margin-bottom: 5px;
-    background: green;
-    color: #efd807;
+    border-radius: 15%;
 }
 
-.content .description {
+.link_to button {
+    width: 200px;
+    background-color: rgb(16, 150, 105);
+    color: white;
+    border: none;
+    height: 40px;
+    border-radius: 15%;
+}
+
+.content #description {
     text-align: center;
     margin-top: 5px;
     margin-bottom: 5px;
     margin: auto;
+}
+
+
+/*Détails page panier*/
+
+.main_panier {
+    display: flex;
+    flex-direction: column;
+    justify-content: justify;
+    padding: 20px;
+    padding-top: 12.5vh;
+    padding-bottom: 12.5vh;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+form .group {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 300px;
+    margin: auto;
+    padding: 10px;
+}
+
+.group label {
+    width: 70px;
+    text-align: left;
+}
+
+.group input {
+    width: 200px;
+    padding-left: 5px;
+    border: none;
+}
+
+.group small {
+    width: 300px;
+    text-align: center;
+    color: red;
+}
+
+a button {
+    width: 300px;
+    background-color: rgb(16, 150, 105);
+    color: white;
+    border: none;
+    height: 40px;
+    border-radius: 15%;
+}
+
+.main_panier .content1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+
+.content1 .div {
+    margin-bottom: 5px;
+}
+
+.div input {
+    width: 200px;
+    padding-left: 5px;
+    border: none;
+}
+
+.div label {
+    width: 70px;
+    text-align: left;
 }
 
 @media (min-width: 768px) and (max-width: 999px) {
