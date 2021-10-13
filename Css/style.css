@@ -362,10 +362,48 @@ form {
     padding: 20px;
     padding-top: 12.5vh;
     padding-bottom: 12.5vh;
+    z-index: 2;
+    margin-top: -60px;
+}
+
+.main_panier h2 {
+    text-align: center;
+    color: #77B5FE;
+}
+
+#panier {
+    margin-bottom: 20px;
+}
+
+#panier input {
+    width: 100px;
+    border: none;
+    background-color: bisque;
+}
+
+#panier .content1 {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 20px;
+    width: 95%;
+    background-color: bisque;
+    padding: 5px;
+}
+
+.main_panier .btnCancelledAll {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.main_panier .totalInvoice {
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 form {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 form .group {

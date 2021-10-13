@@ -19,23 +19,23 @@ if (panier_js === null || panier_js == 0) {
         console.log("nombre d\'élément dans le panier" + panier_js.length);
         panierDynamique.innerHTML += `<div class="content1">
                                             <div id="brand" class="div">
-                                                <label for="brand">Marque :  </label>&nbsp;
+                                                <label for="brand">Marque :  </label>
                                                 <input type="text" name="brand" id="brand" value="${panier_js[j].name}">
                                             </div>
                                             <div id="cost" class="div">
-                                                <label for="cost">Prix unitaire :  </label>&nbsp;
+                                                <label for="cost">Prix :  </label>
                                                 <input type="text" name="cost" id="cost" value="${panier_js[j].cost}&nbsp;€">
                                             </div>
-                                            <div id="brand" class="div">
-                                                <label for="brand">Marque :  </label>&nbsp;
-                                                <input type="text" name="brand" id="brand" value="${panier_js[j].name}">
+                                            <div id="quantity" class="div">
+                                                <label for="brand">Quantité :  </label>
+                                                <input type="text" name="brand" id="brand" value="${panier_js[j].quantity}">
                                             </div>
                                             <div id="total" class="div">
-                                                <label for="total">Total :  </label>&nbsp;
+                                                <label for="total">Total :  </label>
                                                 <input type="text" name="total" id="total" value="${(panier_js[j].total).toFixed(2)}&nbsp;€">
                                             </div>
                                             <div class="lense div">
-                                                <label for="lense">Lentilles :  </label>&nbsp;
+                                                <label for="lense">Lentilles :  </label>
                                                 <input type="text" name="lense" id="lense" value="${panier_js[j].choice}">
                                             </div>
                                             <button class="btn_produit">Supprimer</button>
@@ -245,17 +245,17 @@ btnSendForm.addEventListener("click", (e) => {
     e.preventDefault;
 
     //Charger les différentes valeurs
-    const formValues = {
-        Prénom: document.querySelector("#firstname").value,
-        Nom: document.querySelector("#lastname").value,
-        Adresse: document.querySelector("#adress").value,
-        Ville: document.querySelector("#city").value,
-        Mail: document.querySelector("#email").value
+    const contact = {
+        firstname: document.querySelector("#firstname").value,
+        lastname: document.querySelector("#lastname").value,
+        adress: document.querySelector("#adress").value,
+        city: document.querySelector("#city").value,
+        email: document.querySelector("#email").value
     }
 
     localStorage.setItem("formulaire", JSON.stringify(formValues));
 
-    console.log(formValues);
+    console.log(contact);
 
     //Récupérer ces valeurs
     const sendToBackend = {
