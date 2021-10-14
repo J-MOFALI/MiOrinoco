@@ -3,7 +3,6 @@
  */
 
 let id = localStorage.getItem("info");
-
 let url = "http://localhost:3000/api/cameras/" + (id);
 
 //Sélection de l'Id du formulaire "lentilles" et Mettre le choix de l'utilisateur dans une variable
@@ -86,13 +85,16 @@ let moreDetail = (data) => {
     }
 
     btn_send.addEventListener("click", (e) => {
-        e.preventDefault()
+        e.preventDefault();
 
         let listName = [];
+        let products = [];
 
-        if (localStorage.getItem("invoice")) {
+        console.log(products);
+
+        if (localStorage.getItem("invoice") && localStorage.getItem("Id")) {
             listName = JSON.parse(localStorage.getItem("invoice"));
-            popupConfirmation();
+            products = JSON.parse;
         }
 
         console.log(e)
@@ -103,9 +105,13 @@ let moreDetail = (data) => {
             quantity: numberHowMany,
             cost: price.value,
             total: numberHowMany * price.value,
+            _id: id
         })
+
         const listStringify = JSON.stringify(listName);
         const eltsInvoice = localStorage.setItem("invoice", listStringify);
+
+        popupConfirmation();
     })
 }
 

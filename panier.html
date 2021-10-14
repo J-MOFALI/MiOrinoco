@@ -31,10 +31,10 @@
         <h2>Détails de la commande</h2>
         <div id="panier"></div>
         <h2>Remplissez le formulaire pour valider la commande</h2>
-        <form method="POST" action="" id="form">
+        <form id="form">
             <div class="group">
                 <label for="firstname">Prénom :</label>
-                <input type="text" id="firstname" name="firstname" placeholder="Josué" required>
+                <input type="text" id="firstname" name="firstname" placeholder="Josué" require>
                 <small id="small_firstname"></small>
             </div>
             <div class="group">
@@ -57,8 +57,8 @@
                 <input type="email" id="email" name="email" placeholder="moi@contact.com" required>
                 <small id="small_email"></small>
             </div>
-            <button id="sendto" type="submit" name="send">Valider votre commande</button>
         </form>
+        <button id="sendto" type="submit" name="send">Valider votre commande</button>
     </div>
 
     <!-- Le footer -->

@@ -107,7 +107,7 @@ if (panier_js === null || panier_js == 0) {
     console.log(globalTotal);
 
     //Insertion de la la div inhérente
-    let totalInvoice_HTML = `<div class="totalInvoice"> Facture total à payer : ${globalTotal} € </div>`;
+    let totalInvoice_HTML = `<div class="totalInvoice"> Facture total à payer : ${(globalTotal).toFixed(2)} € </div>`;
     panierDynamique.insertAdjacentHTML("beforeend", totalInvoice_HTML);
     const totalInvoice = document.querySelector(".totalInvoice");
 }
@@ -243,7 +243,16 @@ const btnSendForm = document.querySelector("#sendto");
 
 btnSendForm.addEventListener("click", (e) => {
     e.preventDefault;
+    const firstname = document.querySelector("#firstname").value;
+    const lastname = document.querySelector("#lastname").value;
+    const adress = document.querySelector("#adress").value;
+    const city = document.querySelector("#city").value;
+    const email = document.querySelector("#email").value;
+    console.log('firstname:' + firstname, 'lastname:' + lastname, 'adress:' + adress, 'city:' + city, 'email:' + email)
 
+    if (firstname === '' || lastname === '' || adress === '' || city === '' || email === '') {
+        return;
+    }
     //Charger les différentes valeurs
     const contact = {
         firstname: document.querySelector("#firstname").value,
@@ -253,15 +262,41 @@ btnSendForm.addEventListener("click", (e) => {
         email: document.querySelector("#email").value
     }
 
-    localStorage.setItem("formulaire", JSON.stringify(formValues));
+    localStorage.setItem("formulaire", JSON.stringify(contact));
 
     console.log(contact);
+    const products = []
 
-    //Récupérer ces valeurs
-    const sendToBackend = {
-        panier_js,
-        formValues
+    for (let product of panier_js) {
+        products.push(product._id)
     }
-
+    //Récupérer ces valeurs
+    console.log(products)
+    const sendToBackend = {
+        contact,
+        products
+    }
     console.log(sendToBackend);
+
+    //Envoie vers le Backend
+    let finalSend = fetch("http://localhost:3000/api/cameras/order", {
+        method: "POST",
+        body: JSON.stringify(sendToBackend),
+        headers: {
+            "sendToBackend-type": "application/json; charset=UTF-8"
+        }
+    })
+
+    //Voir le résultat du serveur dans le console
+    finalSend.then(async(response) => {
+        try {
+            console.log("response");
+            console.log(response);
+            const contenu = await response.json();
+            console.log("contenu");
+            console.log(contenu);
+        } catch (e) {
+            console.log(e);
+        }
+    })
 })
