@@ -262,7 +262,7 @@ btnSendForm.addEventListener("click", (e) => {
     e.preventDefault;
     console.log('firstname:' + firstname, 'lastname:' + lastname, 'adress:' + adress, 'city:' + city, 'email:' + email)
 
-    if (testFirstname == 0 || testLaststname == 0 || testAdress == 0 || testCity == 0 || testEmail == 0) {
+    if (testFirstname != true || testLaststname != true || testAdress != true || testCity != true || testEmail != true) {
         return;
     }
 

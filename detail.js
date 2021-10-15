@@ -41,18 +41,20 @@ let moreDetail = (data) => {
                                                         </div>
                                                         <div class="content">
                                                             <div id="description">${data.description}</div>
-                                                            <div class="brand"><label for="brand" value="${data.name}">Marque :  </label>&nbsp;<input type="text" name="brand" id="brand" value="${data.name}"></div>
-                                                            <div class="price"><label for="price">Prix :  </label>&nbsp;<input type="number" name="price" id="price" value="${(data.price/1000).toFixed(2)}">€</div>
-                                                            <form>
-                                                                <label for="choice">Choisissez vos lentilles :</label>
-                                                                <select name="choice" onchange="changeChoice(event)" id="choice" required>
-                                                                    <option  value="default">Veuillez choisir vos lentilles !</option>
-                                                                    ${selection}
-                                                                </select>
-                                                            </form>
-                                                            <div class="quantity">
-                                                                <label for="how_many">Quantité :</label>
-                                                                <input type="number" id="how_many" name="how_many" min="1" onchange="changeQuantity(event)"> 
+                                                            <div class="sub-content">    
+                                                                <div class="brand"><label for="brand" value="${data.name}">Marque :  </label>&nbsp;<input type="text" name="brand" id="brand" value="${data.name}"></div>
+                                                                <div class="price"><label for="price">Prix :  </label>&nbsp;<input type="number" name="price" id="price" value="${(data.price/1000).toFixed(2)}">€</div>
+                                                                <form>
+                                                                    <label for="choice">Choisissez vos lentilles :</label>
+                                                                    <select name="choice" onchange="changeChoice(event)" id="choice" required>
+                                                                        <option  value="default">Veuillez choisir vos lentilles !</option>
+                                                                        ${selection}
+                                                                    </select>
+                                                                </form>
+                                                                <div class="quantity">
+                                                                    <label for="how_many">Quantité :</label>
+                                                                    <input type="number" id="how_many" name="how_many" min="1" onchange="changeQuantity(event)"> 
+                                                                </div>
                                                             </div>
                                                             <a class="link_to" href="panier.html"><button id="send" type="submit" name="send">Ajouter l'article au panier</button></a>
                                                         </div>`
