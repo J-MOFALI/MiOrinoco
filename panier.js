@@ -5,6 +5,21 @@ let panier_js = JSON.parse(panier);
 
 console.log(panier_js);
 
+let testFirstname = "";
+console.log(testFirstname);
+let testLaststname = "";
+let testAdress = "";
+let testCity = "";
+let testEmail = "";
+
+let firststnameRegExp = "";
+console.log(firststnameRegExp);
+let laststnameRegExp = "";
+let adressRegExp = "";
+let cityRegExp = "";
+let emailRegExp = "";
+
+
 //Sélection de la div qui va contenir le code html
 const panierDynamique = document.querySelector("#panier");
 
@@ -110,6 +125,8 @@ if (panier_js === null || panier_js == 0) {
     let totalInvoice_HTML = `<div class="totalInvoice"> Facture total à payer : ${(globalTotal).toFixed(2)} € </div>`;
     panierDynamique.insertAdjacentHTML("beforeend", totalInvoice_HTML);
     const totalInvoice = document.querySelector(".totalInvoice");
+    let total = localStorage.setItem("total", globalTotal);
+    let totalAll = JSON.stringify(total);
 }
 
 //Traitement du formulaire
@@ -126,9 +143,9 @@ form.firstname.addEventListener('change', function() {
 
 const validFirstName = function(inputFirstname) {
     //création de la reg exp du prénom
-    let firstnameRegExp = new RegExp(/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u);
+    firstnameRegExp = new RegExp(/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u);
 
-    let testFirstname = firstnameRegExp.test(inputFirstname.value);
+    testFirstname = firstnameRegExp.test(inputFirstname.value);
     console.log(testFirstname);
 
     let small1 = document.querySelector("#firstsmall");
@@ -149,9 +166,9 @@ form.lastname.addEventListener('change', function() {
 
 const validLastName = function(inputLastname) {
     //création de la reg exp du prénom
-    let lastnameRegExp = new RegExp(/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u);
+    lastnameRegExp = new RegExp(/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u);
 
-    let testLaststname = lastnameRegExp.test(inputLastname.value);
+    testLaststname = lastnameRegExp.test(inputLastname.value);
     console.log(testLaststname);
 
     let small2 = document.querySelector("#lastsmall");
@@ -173,9 +190,9 @@ form.adress.addEventListener('change', function() {
 
 const validAdress = function(inputAdress) {
     //création de la reg exp du prénom
-    let adressRegExp = new RegExp("([0-9]*) ?([a-zA-Z,\. ]*) ?([0-9]{5}) ?([a-zA-Z]*)");
+    adressRegExp = new RegExp("([0-9]*) ?([a-zA-Z,\. ]*) ?([0-9]{5}) ?([a-zA-Z]*)");
 
-    let testAdress = adressRegExp.test(inputAdress.value);
+    testAdress = adressRegExp.test(inputAdress.value);
     console.log(adressRegExp);
 
     let small3 = document.querySelector("#adresssmall");
@@ -197,9 +214,9 @@ form.city.addEventListener('change', function() {
 
 const validCity = function(inputCity) {
     //création de la reg exp du prénom
-    let cityRegExp = new RegExp(/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u);
+    cityRegExp = new RegExp(/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u);
 
-    let testCity = cityRegExp.test(inputCity.value);
+    testCity = cityRegExp.test(inputCity.value);
     console.log(cityRegExp);
 
     let small4 = document.querySelector("#cityssmall");
@@ -221,9 +238,9 @@ form.email.addEventListener('change', function() {
 
 const validEmail = function(inputEmail) {
     //création de la reg exp du prénom
-    let emailRegExp = new RegExp("^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$");
+    emailRegExp = new RegExp("^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$");
 
-    let testEmail = emailRegExp.test(inputEmail.value);
+    testEmail = emailRegExp.test(inputEmail.value);
     console.log(emailRegExp);
 
     let small5 = document.querySelector("#emailsmall");
@@ -243,21 +260,17 @@ const btnSendForm = document.querySelector("#sendto");
 
 btnSendForm.addEventListener("click", (e) => {
     e.preventDefault;
-    const firstname = document.querySelector("#firstname").value;
-    const lastname = document.querySelector("#lastname").value;
-    const adress = document.querySelector("#adress").value;
-    const city = document.querySelector("#city").value;
-    const email = document.querySelector("#email").value;
     console.log('firstname:' + firstname, 'lastname:' + lastname, 'adress:' + adress, 'city:' + city, 'email:' + email)
 
-    if (firstname === '' || lastname === '' || adress === '' || city === '' || email === '') {
+    if (testFirstname == 0 || testLaststname == 0 || testAdress == 0 || testCity == 0 || testEmail == 0) {
         return;
     }
+
     //Charger les différentes valeurs
     const contact = {
-        firstname: document.querySelector("#firstname").value,
-        lastname: document.querySelector("#lastname").value,
-        adress: document.querySelector("#adress").value,
+        firstName: document.querySelector("#firstname").value,
+        lastName: document.querySelector("#lastname").value,
+        address: document.querySelector("#adress").value,
         city: document.querySelector("#city").value,
         email: document.querySelector("#email").value
     }
@@ -283,7 +296,7 @@ btnSendForm.addEventListener("click", (e) => {
         method: "POST",
         body: JSON.stringify(sendToBackend),
         headers: {
-            "sendToBackend-type": "application/json; charset=UTF-8"
+            "content-type": "application/json; charset=UTF-8"
         }
     })
 
@@ -295,6 +308,8 @@ btnSendForm.addEventListener("click", (e) => {
             const contenu = await response.json();
             console.log("contenu");
             console.log(contenu);
+            let contain = JSON.stringify(contenu);
+            localStorage.setItem("contenu", contain);
         } catch (e) {
             console.log(e);
         }

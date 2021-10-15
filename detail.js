@@ -92,7 +92,7 @@ let moreDetail = (data) => {
 
         console.log(products);
 
-        if (localStorage.getItem("invoice") && localStorage.getItem("Id")) {
+        if (localStorage.getItem("invoice")) {
             listName = JSON.parse(localStorage.getItem("invoice"));
             products = JSON.parse;
         }
