@@ -82,7 +82,7 @@ let moreDetail = (data) => {
         if (window.confirm(`La caméra ${brand.value} avec les lentilles ${choixForm} a été rajouter au panier.  Cliquez sur OK pour consulter le panier ou ANNULER pour revenir à l'accueil`)) {
             window.location.href = "panier.html";
         } else {
-            window.location.href = "index.html";
+            window.location.href = "../index.html";
         }
     }
 

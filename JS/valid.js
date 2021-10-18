@@ -13,7 +13,9 @@ console.log(total);
 let main = document.querySelector(".main_valid");
 main.style.height = "100vh";
 
-main.innerHTML += `<div class="dataBack">
+
+if (dataGet && dataGet.orderId && dataGet.contact) {
+    main.innerHTML += `<div class="dataBack">
                         <div class="message">
                             Bienvenue Monsieur ${dataGet.contact.firstName} ${dataGet.contact.lastName} Votre commande à bien été pris en compte
                         </div>
@@ -24,6 +26,17 @@ main.innerHTML += `<div class="dataBack">
                             Votre numéro de commande est ${dataGet.orderId}
                         </div>
                     </div>`
+
+} else {
+    main.innerHTML += `<div class="dataBack">
+                        <div class="message">
+                        Votre commande n'a pas été prise en compte, veuillez réessayer.
+                        </div>
+                    </div>`
+
+    main.style.color = "yellow";
+    main.style.justifycontent = "center";
+}
 
 let otherOrder = document.querySelector("#restart");
 otherOrder.addEventListener("click", (e) => {
