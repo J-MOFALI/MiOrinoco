@@ -24,3 +24,9 @@ main.innerHTML += `<div class="dataBack">
                             Votre numéro de commande est ${dataGet.orderId}
                         </div>
                     </div>`
+
+let otherOrder = document.querySelector("#restart");
+otherOrder.addEventListener("click", (e) => {
+    e.preventDefault;
+    localStorage.clear();
+})

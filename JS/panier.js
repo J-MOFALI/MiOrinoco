@@ -6,14 +6,12 @@ let panier_js = JSON.parse(panier);
 console.log(panier_js);
 
 let testFirstname = "";
-console.log(testFirstname);
 let testLaststname = "";
 let testAdress = "";
 let testCity = "";
 let testEmail = "";
 
 let firststnameRegExp = "";
-console.log(firststnameRegExp);
 let laststnameRegExp = "";
 let adressRegExp = "";
 let cityRegExp = "";

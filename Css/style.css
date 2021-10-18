@@ -360,7 +360,7 @@ form {
     margin: auto;
     margin-top: 5px;
     margin-bottom: 5px;
-    border-radius: 15%;
+    border-radius: 10%;
 }
 
 .link_to button {
@@ -389,6 +389,19 @@ form {
 .main_panier h2 {
     text-align: center;
     color: #77B5FE;
+}
+
+.main_panier a {
+    margin: auto;
+}
+
+a button {
+    width: 300px;
+    background-color: rgb(16, 150, 105);
+    color: white;
+    border: none;
+    height: 40px;
+    border-radius: 15%;
 }
 
 #panier {
@@ -453,15 +466,6 @@ form .group {
     color: red;
 }
 
-a button {
-    width: 300px;
-    background-color: rgb(16, 150, 105);
-    color: white;
-    border: none;
-    height: 40px;
-    border-radius: 15%;
-}
-
 .main_panier .content1 {
     display: flex;
     flex-direction: column;
@@ -482,6 +486,27 @@ a button {
 .div label {
     width: 70px;
     text-align: left;
+}
+
+
+/*Valid Page*/
+
+.main_valid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: black;
+}
+
+.dataBack {
+    background-color: #77B5FE;
+    border: 1px solid black;
+    border-radius: 30px;
+}
+
+.dataBack .message {
+    margin: 20px 5px 20px 5px;
 }
 
 @media (min-width: 768px) and (max-width: 999px) {
@@ -509,6 +534,11 @@ a button {
         flex-direction: column;
         background-color: black;
         height: 100vh;
+    }
+    /*Detail Pages*/
+    .main_detail {
+        height: auto;
+        width: "100vh 100";
     }
 }
 
@@ -539,5 +569,10 @@ a button {
         align-items: center;
         background-color: black;
         height: 100vh;
+    }
+    /*Detail Pages*/
+    .main_detail {
+        height: auto;
+        width: "100vh 100";
     }
 }
