@@ -11,7 +11,7 @@ console.log(total);
 
 //Définition de la taille du main
 let main = document.querySelector(".main_valid");
-main.style.height = "100vh";
+main.style.height = "75vh";
 
 
 if (dataGet && dataGet.orderId && dataGet.contact) {
@@ -35,7 +35,6 @@ if (dataGet && dataGet.orderId && dataGet.contact) {
                     </div>`
 
     main.style.color = "yellow";
-    main.style.justifycontent = "center";
 }
 
 let otherOrder = document.querySelector("#restart");

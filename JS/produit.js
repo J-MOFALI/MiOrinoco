@@ -1,5 +1,5 @@
 /**
- * Représentation du format d'un produit ainsi que du format du prix
+ * Représentation du format d'un produit 
  */
 
 class Produit {

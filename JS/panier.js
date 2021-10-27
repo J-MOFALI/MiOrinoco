@@ -1,5 +1,7 @@
 //Récupération des composants de la facture
 let panier = localStorage.getItem("invoice");
+console.log(panier);
+
 
 let panier_js = JSON.parse(panier);
 
@@ -103,7 +105,7 @@ if (panier_js === null || panier_js == 0) {
     let globalTotalInvoice = [];
     console.log(globalTotalInvoice)
 
-    //Prendre les prix du panier pour afficher dans le tableau
+    //Prendre le prix du panier pour afficher dans le tableau
     for (let n = 0; n < panier_js.length; n++) {
         let everyTotalInvoice = panier_js[n].total;
 
@@ -111,8 +113,6 @@ if (panier_js === null || panier_js == 0) {
         globalTotalInvoice.push(everyTotalInvoice);
 
     }
-
-
 
     //Calcul du Prix qu'il y a dans le tableau
     const reducer = (accumulator, currentValue) => accumulator + currentValue;

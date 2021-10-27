@@ -259,8 +259,14 @@ footer i {
 }
 
 .main_detail {
-    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: justify;
     padding: 20px;
+    padding-top: 12.5vh;
+    padding-bottom: 12.5vh;
+    z-index: 2;
+    margin-top: -60px;
 }
 
 .main.detail #container1 {
@@ -404,6 +410,11 @@ a button {
     border-radius: 15%;
 }
 
+.panier-vide {
+    display: flex;
+    justify-content: center;
+}
+
 #panier {
     margin-bottom: 20px;
 }
@@ -458,6 +469,7 @@ form .group {
     width: 200px;
     padding-left: 5px;
     border: none;
+    border-bottom: green 1px solid;
 }
 
 .group small {

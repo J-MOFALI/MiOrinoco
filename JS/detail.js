@@ -5,31 +5,25 @@
 let id = localStorage.getItem("info");
 let url = "http://localhost:3000/api/cameras/" + (id);
 
+
 //Sélection de l'Id du formulaire "lentilles" et Mettre le choix de l'utilisateur dans une variable
 
 let choixForm;
 
 function changeChoice(e) {
-    console.log('change', e.srcElement.value);
     const idForm = document.querySelector("#choice");
     choixForm = e.srcElement.value;
-
-    console.log(choixForm)
-
 }
 
 //Sélection et de la quantité
 let numberHowMany;
 
 function changeQuantity(e) {
-    console.log('change', e.srcElement.value);
     const howMany = document.querySelector("#how_many");
     numberHowMany = e.srcElement.value;
-
-    console.log(numberHowMany)
-
 }
 
+// Cette fonction permet d'afficher correctement les contenus du produit en utilisant les données du tableau
 let moreDetail = (data) => {
     let selection = "";
     //la boucle qui permet de récupérer les options
@@ -53,7 +47,8 @@ let moreDetail = (data) => {
                                                                 </form>
                                                                 <div class="quantity">
                                                                     <label for="how_many">Quantité :</label>
-                                                                    <input type="number" id="how_many" name="how_many" min="1" onchange="changeQuantity(event)"> 
+                                                                    <input type="number" id="how_many" name="how_many" min="1" onchange="changeQuantity(event)">
+                                                                    <small id="Ici"></small> 
                                                                 </div>
                                                             </div>
                                                             <a class="link_to" href="panier.html"><button id="send" type="submit" name="send">Ajouter l'article au panier</button></a>
@@ -114,10 +109,37 @@ let moreDetail = (data) => {
         const eltsInvoice = localStorage.setItem("invoice", listStringify);
 
         popupConfirmation();
+
+        //ajout
+        if (!numberHowMany) {
+            return false;
+        }
     })
+
+    //Pour expliquer au visiteur qu'il doit saisir une quantité supérieur à zéro
+    document.querySelector("#how_many").addEventListener('change', function() {
+        validNumberHowMany(this);
+    });
+
+    const validNumberHowMany = function(inputNumberHowMany) {
+        //création de la reg exp du prénom
+        numberHowManyRegExp = new RegExp("^([1-9]{1}|[1-9]{1}[0-99]{1,})$");
+
+        testNumberHowMany = numberHowManyRegExp.test(inputNumberHowMany.value);
+        console.log(testNumberHowMany);
+
+        let small = document.querySelector("#how_many");
+        small = inputNumberHowMany.nextElementSibling;
+
+        if (testNumberHowMany == true) {
+            small.innerHTML = "Valide";
+            document.querySelector("#Ici").style.color = '#00561B';
+        } else {
+            small.innerHTML = "Saisissez une quantité supérieure à zéro.";
+            document.querySelector("#Ici").style.color = '#f00020';
+        }
+    }
 }
-
-
 
 fetch(url)
     .then(data => data.json())

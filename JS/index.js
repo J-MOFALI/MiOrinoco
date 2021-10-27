@@ -6,11 +6,10 @@ const enregistrerId = function(id) {
 };
 
 let display = (jsonListProduit) => {
-    console.log(jsonListProduit);
     for (let jsonProduit of jsonListProduit) {
         let produit = new Produit(jsonProduit);
         const idProduit = "produit-" + produit._id;
-        document.querySelector("#container").innerHTML += `<a href="HTML/detail.html" id="${idProduit}" onclick="enregistrerId('${produit._id}')">                                                 
+        document.querySelector("#container").innerHTML += `<a href="Html/detail.html" id="${idProduit}" onclick="enregistrerId('${produit._id}')">                                                 
                                                                     <div class="product">
                                                                         <img src="${produit.imageUrl}" alt="${produit.name}">
                                                                         <div class="text">
