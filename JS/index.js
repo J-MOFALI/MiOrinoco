@@ -28,6 +28,7 @@ fetch(url)
         let container = document.querySelector("#container");
         container.innerHTML +=
             "L'affichage des produits n'est pas possible. Réessayer plus tard ? <br>Si le problème persiste, contactez-nous.";
-        container.style.textAlign = "center";
+        container.style.textalign = "center";
         container.style.padding = "30vh 0";
+        container.style.color = "#77b5fe";
     })

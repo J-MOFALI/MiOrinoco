@@ -1,23 +1,21 @@
 //Récupération des composants de la facture
 let panier = localStorage.getItem("invoice");
-console.log(panier);
-
 
 let panier_js = JSON.parse(panier);
 
-console.log(panier_js);
+let firstName = "";
+let lastName = "";
+let address = "";
+let city = "";
+let postalCode = "";
+let email = "";
 
-let testFirstname = "";
-let testLaststname = "";
-let testAdress = "";
-let testCity = "";
-let testEmail = "";
-
-let firststnameRegExp = "";
-let laststnameRegExp = "";
-let adressRegExp = "";
-let cityRegExp = "";
-let emailRegExp = "";
+let testFirstName;
+let testLaststName;
+let testAddress;
+let testCity;
+let testPostalCode;
+let testEmail;
 
 
 //Sélection de la div qui va contenir le code html
