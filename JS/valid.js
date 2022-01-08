@@ -11,7 +11,7 @@ console.log(total);
 
 //Définition de la taille du main
 let main = document.querySelector(".main_valid");
-main.style.height = "75vh";
+main.style.height = "100vh";
 
 
 if (dataGet && dataGet.orderId && dataGet.contact) {
@@ -35,10 +35,16 @@ if (dataGet && dataGet.orderId && dataGet.contact) {
                     </div>`
 
     main.style.color = "yellow";
+    main.style.justifycontent = "center";
 }
 
 let otherOrder = document.querySelector("#restart");
 otherOrder.addEventListener("click", (e) => {
     e.preventDefault;
-    localStorage.clear();
+    localStorage.removeItem('key');
+    localStorage.removeItem('info');
+    localStorage.removeItem('total');
+    localStorage.removeItem('invoice');
+    localStorage.removeItem('formulaire');
+    localStorage.removeItem('contenu');
 })

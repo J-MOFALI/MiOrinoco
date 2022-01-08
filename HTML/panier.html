@@ -33,24 +33,29 @@
         <h2>Remplissez le formulaire pour valider la commande</h2>
         <form id="form">
             <div class="group">
-                <label for="firstname">Prénom :</label>
-                <input type="text" id="firstname" name="firstname" placeholder="Josué" require>
-                <small id="small_firstname"></small>
+                <label for="firstName">Prénom :</label>
+                <input type="text" id="firstName" name="firstName" placeholder="Josué" required>
+                <small id="small_firstName"></small>
             </div>
             <div class="group">
-                <label for="lastname">Nom :</label>
-                <input type="text" id="lastname" name="lastname" placeholder="MOFALI" required>
-                <small id="small_lastname"></small>
+                <label for="lastName">Nom :</label>
+                <input type="text" id="lastName" name="lastName" placeholder="MOFALI" required>
+                <small id="small_lastName"></small>
             </div>
             <div class="group">
-                <label for="adress">Adresse :</label>
-                <input type="text" id="adress" name="adress" placeholder="2 Allée des Micoux, 45500 Gien" required>
-                <small id="small_adress"></small>
+                <label for="address">Adresse :</label>
+                <input type="text" id="address" name="address" placeholder="2 Allée Micoux" required>
+                <small id="small_address"></small>
             </div>
             <div class="group">
-                <label>Ville :</label>
+                <label for="city">Ville :</label>
                 <input type="text" id="city" name="city" placeholder="Gien" required>
                 <small id="small_city"></small>
+            </div>
+            <div class="group">
+                <label for="postalCode">C. Postal :</label>
+                <input type="text" id="postalCode" name="postalCode" placeholder="99100" required>
+                <small id="small_postalCode"></small>
             </div>
             <div class="group">
                 <label for="email">Email :</label>
@@ -58,7 +63,7 @@
                 <small id="small_email"></small>
             </div>
         </form>
-        <a href="valid.html"><button id="sendto" type="submit" name="send">Valider votre commande</button></a>
+        <button id="sendTo" type="submit" name="send">Valider votre commande</button>
     </div>
 
     <!-- Le footer -->
@@ -71,7 +76,7 @@
         </div>
     </footer>
 
-    <script src="../Js/panier.js"></script>
+    <script src="../JS/panier.js"></script>
 
 </body>
 

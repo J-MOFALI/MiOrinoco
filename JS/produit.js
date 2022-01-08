@@ -1,5 +1,5 @@
 /**
- * Représentation du format d'un produit 
+ * Représentation du format d'un produit
  */
 
 class Produit {

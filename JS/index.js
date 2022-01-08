@@ -6,10 +6,11 @@ const enregistrerId = function(id) {
 };
 
 let display = (jsonListProduit) => {
+    console.log(jsonListProduit);
     for (let jsonProduit of jsonListProduit) {
         let produit = new Produit(jsonProduit);
         const idProduit = "produit-" + produit._id;
-        document.querySelector("#container").innerHTML += `<a href="Html/detail.html" id="${idProduit}" onclick="enregistrerId('${produit._id}')">                                                 
+        document.querySelector("#container").innerHTML += `<a href="HTML/detail.html" id="${idProduit}" onclick="enregistrerId('${produit._id}')">                                                 
                                                                     <div class="product">
                                                                         <img src="${produit.imageUrl}" alt="${produit.name}">
                                                                         <div class="text">
@@ -28,7 +29,6 @@ fetch(url)
         let container = document.querySelector("#container");
         container.innerHTML +=
             "L'affichage des produits n'est pas possible. Réessayer plus tard ? <br>Si le problème persiste, contactez-nous.";
-        container.style.textalign = "center";
+        container.style.textAlign = "center";
         container.style.padding = "30vh 0";
-        container.style.color = "#77b5fe";
     })

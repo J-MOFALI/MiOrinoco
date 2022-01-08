@@ -5,25 +5,31 @@
 let id = localStorage.getItem("info");
 let url = "http://localhost:3000/api/cameras/" + (id);
 
-
 //Sélection de l'Id du formulaire "lentilles" et Mettre le choix de l'utilisateur dans une variable
 
 let choixForm;
 
 function changeChoice(e) {
+    console.log('change', e.srcElement.value);
     const idForm = document.querySelector("#choice");
     choixForm = e.srcElement.value;
+
+    console.log(choixForm)
+
 }
 
 //Sélection et de la quantité
 let numberHowMany;
 
 function changeQuantity(e) {
+    console.log('change', e.srcElement.value);
     const howMany = document.querySelector("#how_many");
     numberHowMany = e.srcElement.value;
+
+    console.log(numberHowMany)
+
 }
 
-// Cette fonction permet d'afficher correctement les contenus du produit en utilisant les données du tableau
 let moreDetail = (data) => {
     let selection = "";
     //la boucle qui permet de récupérer les options
@@ -36,8 +42,8 @@ let moreDetail = (data) => {
                                                         <div class="content">
                                                             <div id="description">${data.description}</div>
                                                             <div class="sub-content">    
-                                                                <div class="brand"><label for="brand" value="${data.name}">Marque :  </label>&nbsp;<input type="text" name="brand" id="brand" value="${data.name}"></div>
-                                                                <div class="price"><label for="price">Prix :  </label>&nbsp;<input type="number" name="price" id="price" value="${(data.price/1000).toFixed(2)}">€</div>
+                                                                <div class="brand"><label for="brand">Marque :  </label>&nbsp;<div id="brand">${data.name}</div></div>
+                                                                <div class="price"><label for="price">Prix :  </label>&nbsp;<div id="price">${(data.price/1000).toFixed(2)}</div><div>€</div></div>
                                                                 <form>
                                                                     <label for="choice">Choisissez vos lentilles :</label>
                                                                     <select name="choice" onchange="changeChoice(event)" id="choice" required>
@@ -47,8 +53,7 @@ let moreDetail = (data) => {
                                                                 </form>
                                                                 <div class="quantity">
                                                                     <label for="how_many">Quantité :</label>
-                                                                    <input type="number" id="how_many" name="how_many" min="1" onchange="changeQuantity(event)">
-                                                                    <small id="Ici"></small> 
+                                                                    <input type="number" id="how_many" name="how_many" min="1" onchange="changeQuantity(event)"> 
                                                                 </div>
                                                             </div>
                                                             <a class="link_to" href="panier.html"><button id="send" type="submit" name="send">Ajouter l'article au panier</button></a>
@@ -58,17 +63,12 @@ let moreDetail = (data) => {
     //Récupérer les données envoyés par l'utilisateur et envoie du panier
 
     //Sélection du prix et de la marque
-    const price = document.querySelector("#price");
-    const costPrice = price.value;
-    console.log(costPrice);
+    const price = document.getElementById("price").innerHTML;
 
-    const brand = document.querySelector("#brand");
-    const brandName = brand.value;
-    console.log(brandName);
+    const brand = document.getElementById("brand").innerHTML;;
 
     //Sélection du bouton ajouter au panier
     const btn_send = document.querySelector("#send");
-    console.log(btn_send);
 
     //Ecouter le bouton et envoyé le panier
 
@@ -97,11 +97,11 @@ let moreDetail = (data) => {
         console.log(e)
             //Récupération des valeurs du formulaire
         listName.push({
-            name: brand.value,
+            name: brand,
             choice: choixForm,
             quantity: numberHowMany,
-            cost: price.value,
-            total: numberHowMany * price.value,
+            cost: price,
+            total: numberHowMany * price,
             _id: id
         })
 
@@ -109,37 +109,10 @@ let moreDetail = (data) => {
         const eltsInvoice = localStorage.setItem("invoice", listStringify);
 
         popupConfirmation();
-
-        //ajout
-        if (!numberHowMany) {
-            return false;
-        }
     })
-
-    //Pour expliquer au visiteur qu'il doit saisir une quantité supérieur à zéro
-    document.querySelector("#how_many").addEventListener('change', function() {
-        validNumberHowMany(this);
-    });
-
-    const validNumberHowMany = function(inputNumberHowMany) {
-        //création de la reg exp du prénom
-        numberHowManyRegExp = new RegExp("^([1-9]{1}|[1-9]{1}[0-99]{1,})$");
-
-        testNumberHowMany = numberHowManyRegExp.test(inputNumberHowMany.value);
-        console.log(testNumberHowMany);
-
-        let small = document.querySelector("#how_many");
-        small = inputNumberHowMany.nextElementSibling;
-
-        if (testNumberHowMany == true) {
-            small.innerHTML = "Valide";
-            document.querySelector("#Ici").style.color = '#00561B';
-        } else {
-            small.innerHTML = "Saisissez une quantité supérieure à zéro.";
-            document.querySelector("#Ici").style.color = '#f00020';
-        }
-    }
 }
+
+
 
 fetch(url)
     .then(data => data.json())

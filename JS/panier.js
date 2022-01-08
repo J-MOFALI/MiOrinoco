@@ -17,6 +17,13 @@ let testCity;
 let testPostalCode;
 let testEmail;
 
+let firstNameRegExp = new RegExp(/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u);
+let lastNameRegExp = new RegExp(/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u);
+let addressRegExp = new RegExp(/^[A-Za-z0-9\s]{5,50}$/);
+let cityRegExp = new RegExp(/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u);
+let postalCodeRegExp = new RegExp("^[0-9]{5}$");
+let emailRegExp = new RegExp("^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$");
+
 
 //Sélection de la div qui va contenir le code html
 const panierDynamique = document.querySelector("#panier");
@@ -24,8 +31,10 @@ const panierDynamique = document.querySelector("#panier");
 
 //Si le panier est vide afficher le panier est vide
 if (panier_js === null || panier_js == 0) {
-    const panierVide = `<div class="panier-vide"><div>Ce panier est vide. Veuillez sélectionner vos articles</div></div>`
+    const panierVide = `<div class="panier-vide"><div>Ce panier est vide. Veuillez sélectionner vos articles !!!</div></div>`
     panierDynamique.innerHTML += panierVide;
+    panierDynamique.style.color = '#f00020';
+    panierDynamique.style.margin = 'auto';
 } else {
     //Si le panier n'est pas vide : afficher les produits qui sont dans le local storage            ss
     for (j = 0; j < panier_js.length; j++) {
@@ -103,7 +112,7 @@ if (panier_js === null || panier_js == 0) {
     let globalTotalInvoice = [];
     console.log(globalTotalInvoice)
 
-    //Prendre le prix du panier pour afficher dans le tableau
+    //Prendre les prix du panier pour afficher dans le tableau
     for (let n = 0; n < panier_js.length; n++) {
         let everyTotalInvoice = panier_js[n].total;
 
@@ -111,6 +120,8 @@ if (panier_js === null || panier_js == 0) {
         globalTotalInvoice.push(everyTotalInvoice);
 
     }
+
+
 
     //Calcul du Prix qu'il y a dans le tableau
     const reducer = (accumulator, currentValue) => accumulator + currentValue;
@@ -133,73 +144,61 @@ let form = document.querySelector("#form");
 
 // Les noms
 
-form.firstname.addEventListener('change', function() {
+form.firstName.addEventListener('change', function() {
     validFirstName(this);
 });
 
-const validFirstName = function(inputFirstname) {
-    //création de la reg exp du prénom
-    firstnameRegExp = new RegExp(/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u);
+const validFirstName = function(inputFirstName) {
 
-    testFirstname = firstnameRegExp.test(inputFirstname.value);
-    console.log(testFirstname);
+    testFirstName = firstNameRegExp.test(inputFirstName.value);
 
-    let small1 = document.querySelector("#firstsmall");
-    small1 = inputFirstname.nextElementSibling;
+    let small1 = inputFirstName.nextElementSibling;
 
-    if (testFirstname == true) {
+    if (testFirstName == true) {
         small1.innerHTML = "Valide";
-        document.querySelector("#small_firstname").style.color = '#00561B';
+        document.querySelector("#small_firstName").style.color = '#00561B';
     } else {
         small1.innerHTML = "Invalide, veuillez saisir une identité valide avec des lettres uniquement.";
-        document.querySelector("#small_firstname").style.color = '#f00020';
+        document.querySelector("#small_firstName").style.color = '#f00020';
     }
 }
 
-form.lastname.addEventListener('change', function() {
+form.lastName.addEventListener('change', function() {
     validLastName(this);
 });
 
-const validLastName = function(inputLastname) {
-    //création de la reg exp du prénom
-    lastnameRegExp = new RegExp(/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u);
+const validLastName = function(inputLastName) {
 
-    testLaststname = lastnameRegExp.test(inputLastname.value);
-    console.log(testLaststname);
+    testLastName = lastNameRegExp.test(inputLastName.value);
 
-    let small2 = document.querySelector("#lastsmall");
-    small2 = inputLastname.nextElementSibling;
+    let small2 = inputLastName.nextElementSibling;
 
-    if (testLaststname == true) {
+    if (testLastName == true) {
         small2.innerHTML = "Valide";
-        document.querySelector("#small_lastname").style.color = '#00561B';
+        document.querySelector("#small_lastName").style.color = '#00561B';
     } else {
         small2.innerHTML = "Invalide, veuillez saisir une identité valide avec des lettres uniquement.";
-        document.querySelector("#small_lastname").style.color = '#f00020';
+        document.querySelector("#small_lastName").style.color = '#f00020';
     }
 }
 
 //Adresse
-form.adress.addEventListener('change', function() {
+form.address.addEventListener('change', function() {
     validAdress(this);
 });
 
-const validAdress = function(inputAdress) {
-    //création de la reg exp du prénom
-    adressRegExp = new RegExp("([0-9]*) ?([a-zA-Z,\. ]*) ?([0-9]{5}) ?([a-zA-Z]*)");
+const validAdress = function(inputAddress) {
 
-    testAdress = adressRegExp.test(inputAdress.value);
-    console.log(adressRegExp);
+    testAddress = addressRegExp.test(inputAddress.value);
 
-    let small3 = document.querySelector("#adresssmall");
-    small3 = inputAdress.nextElementSibling;
+    let small3 = inputAddress.nextElementSibling;
 
-    if (testAdress == true) {
+    if (testAddress == true) {
         small3.innerHTML = "Valide";
-        document.querySelector("#small_adress").style.color = '#00561B';
+        document.querySelector("#small_address").style.color = '#00561B';
     } else {
-        small3.innerHTML = "Invalide, veuillez saisir une adresse correcte.";
-        document.querySelector("#small_adress").style.color = '#f00020';
+        small3.innerHTML = "Invalide, saisissez une adresse sans accent. ";
+        document.querySelector("#small_address").style.color = '#f00020';
     }
 }
 
@@ -209,14 +208,10 @@ form.city.addEventListener('change', function() {
 });
 
 const validCity = function(inputCity) {
-    //création de la reg exp du prénom
-    cityRegExp = new RegExp(/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.'-]+$/u);
 
     testCity = cityRegExp.test(inputCity.value);
-    console.log(cityRegExp);
 
-    let small4 = document.querySelector("#cityssmall");
-    small4 = inputCity.nextElementSibling;
+    let small4 = inputCity.nextElementSibling;
 
     if (testCity == true) {
         small4.innerHTML = "Valide"
@@ -227,47 +222,62 @@ const validCity = function(inputCity) {
     }
 }
 
+// Code Postal
+form.postalCode.addEventListener('change', function() {
+    validPostalCode(this);
+});
+
+const validPostalCode = function(inputPostalCode) {
+
+    testPostalCode = postalCodeRegExp.test(inputPostalCode.value);
+
+    let small5 = inputPostalCode.nextElementSibling;
+
+    if (testPostalCode == true) {
+        small5.innerHTML = "Valide"
+        document.querySelector("#small_postalCode").style.color = '#00561B';
+    } else {
+        small5.innerHTML = "Invalide, veuillez saisir un code postal correct.";
+        document.querySelector("#small_postalCode").style.color = '#f00020';
+    }
+}
+
 //Email
 form.email.addEventListener('change', function() {
     validEmail(this);
 });
 
 const validEmail = function(inputEmail) {
-    //création de la reg exp du prénom
-    emailRegExp = new RegExp("^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$");
 
     testEmail = emailRegExp.test(inputEmail.value);
-    console.log(emailRegExp);
 
-    let small5 = document.querySelector("#emailsmall");
-    small5 = inputEmail.nextElementSibling;
+    let small6 = inputEmail.nextElementSibling;
 
     if (testEmail == true) {
-        small5.innerHTML = "Valide";
+        small6.innerHTML = "Valide";
         document.querySelector("#small_email").style.color = '#00561B';
     } else {
-        small5.innerHTML = "Invalide, veuillez un mail correct.";
+        small6.innerHTML = "Invalide, veuillez un mail correct.";
         document.querySelector("#small_email").style.color = '#f00020';
     }
 }
 
 //Récupération des éléments du formulaire
-const btnSendForm = document.querySelector("#sendto");
+const btnSendForm = document.querySelector("#sendTo");
 
 btnSendForm.addEventListener("click", (e) => {
     e.preventDefault;
-    console.log('firstname:' + firstname, 'lastname:' + lastname, 'adress:' + adress, 'city:' + city, 'email:' + email)
 
-    if (testFirstname != true || testLaststname != true || testAdress != true || testCity != true || testEmail != true) {
+    if (!testFirstName || !testLastName || !testAddress || !testCity || !testPostalCode || !testEmail || !panier_js.length) {
         return;
     }
-
     //Charger les différentes valeurs
     const contact = {
-        firstName: document.querySelector("#firstname").value,
-        lastName: document.querySelector("#lastname").value,
-        address: document.querySelector("#adress").value,
+        firstName: document.querySelector("#firstName").value,
+        lastName: document.querySelector("#lastName").value,
+        address: document.querySelector("#address").value,
         city: document.querySelector("#city").value,
+        postalCode: document.querySelector("#postalCode").value,
         email: document.querySelector("#email").value
     }
 
@@ -296,16 +306,13 @@ btnSendForm.addEventListener("click", (e) => {
         }
     })
 
-    //Voir le résultat du serveur dans le console
+    ///Voir le résultat du serveur dans le console
     finalSend.then(async(response) => {
         try {
-            console.log("response");
-            console.log(response);
             const contenu = await response.json();
-            console.log("contenu");
-            console.log(contenu);
             let contain = JSON.stringify(contenu);
             localStorage.setItem("contenu", contain);
+            document.location.href = "valid.html";
         } catch (e) {
             console.log(e);
         }
